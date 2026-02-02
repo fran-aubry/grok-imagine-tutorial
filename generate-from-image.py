@@ -10,14 +10,15 @@ client = Client()
 
 # Sending a video generation request
 prompt = """
-Make it snowy
+A FPV drone shot of the people riding the horses on the beach.
 """
 
 response = client.video.generate(
     prompt=prompt,
     model="grok-imagine-video",
-    video_url="https://vidgen.x.ai/xai-vidgen-bucket/xai-video-bd34cc89-fe76-4039-b275-8328b2491fdf.mp4",
+    image_url="https://raw.githubusercontent.com/fran-aubry/grok-imagine-tutorial/main/horses.jpeg",
 )
 
 # Download the video
+print(response.url)
 utils.download_video(response.url)
